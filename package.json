@@ -4,6 +4,7 @@
   "description": "A Social Network for Tutan",
   "main": "index.js",
   "scripts": {
+    "serve": "node index",
     "start": "nodemon index"
   },
   "keywords": [],
