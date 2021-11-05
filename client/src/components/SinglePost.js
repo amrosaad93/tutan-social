@@ -1,17 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Card, Icon, Image, Label } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import moment from "moment";
 
+import { AuthContext } from "../context/auth";
+
 const SinglePost = ({ post }) => {
   const { body, createdAt, id, username, likeCount, commentCount, likes } = post;
 
+  const { user } = useContext(AuthContext);
   const likePost = () => {
     console.log("like Post");
-  };
-
-  const commentOnPost = () => {
-    console.log("comment on post");
   };
 
   return (
@@ -33,7 +32,7 @@ const SinglePost = ({ post }) => {
             {likeCount}
           </Label>
         </Button>
-        <Button as="div" labelPosition="right" onClick={commentOnPost}>
+        <Button as="div" labelPosition="right" as={Link} to={`/posts/${id}`}>
           <Button color="blue" basic>
             <Icon name="comments" />
           </Button>
@@ -41,6 +40,11 @@ const SinglePost = ({ post }) => {
             {commentCount}
           </Label>
         </Button>
+        {user && user.username === username && (
+          <Button as="div" color="red" floated="right" onClick={() => console.log("Delete post")}>
+            <Icon name="trash" style={{ margin: 0 }} />
+          </Button>
+        )}
       </Card.Content>
     </Card>
   );
