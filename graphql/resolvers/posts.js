@@ -32,6 +32,10 @@ module.exports = {
 
       // We have a user here
 
+      if (body.trim() === "") {
+        throw new Error("Post body must not be Empty");
+      }
+
       const newPost = new Post({
         body,
         user: user.indexOf,
