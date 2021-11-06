@@ -7,6 +7,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth";
 import LikeButton from "../components/LikeButton";
 import DeleteButton from "../components/DeleteButton";
+import MyPopup from "../util/MyPopup";
 
 const PostPage = (props) => {
   const navigate = useNavigate();
@@ -43,9 +44,7 @@ const PostPage = (props) => {
   if (loading) {
     return <p>Loading...</p>;
   } else {
-    console.log(data);
-
-    const { id, body, createdAt, username, comments, likes, likeCount, commentsCount } = data.getPost;
+    const { id, body, createdAt, username, comments, likes, likeCount, commentCount } = data.getPost;
     return (
       <Grid>
         <Grid.Row>
@@ -62,14 +61,16 @@ const PostPage = (props) => {
               <hr />
               <Card.Content extra>
                 <LikeButton user={user} post={{ id, likes, likeCount }} />
-                <Button as="div" labelPosition="right" onclick={() => console.log("Comment")}>
-                  <Button basic color="blue">
-                    <Icon name="comments" />
+                <MyPopup content="Leave Feedback on Post">
+                  <Button as="div" labelPosition="right" onclick={() => console.log("Comment")}>
+                    <Button basic color="blue">
+                      <Icon name="comments" />
+                    </Button>
+                    <Label basic color="blue" pointing="left">
+                      {commentCount}
+                    </Label>
                   </Button>
-                  <Label basic color="blue" pointing="left">
-                    {commentsCount}
-                  </Label>
-                </Button>
+                </MyPopup>
                 {user && user.username === username && <DeleteButton postId={id} callback={deletePostCallback} />}
               </Card.Content>
             </Card>
