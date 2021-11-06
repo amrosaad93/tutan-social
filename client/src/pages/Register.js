@@ -44,7 +44,7 @@ const Register = () => {
 
   return (
     <div className="form-container">
-      <Form onSubmit={onSubmit} noValidate className={loading ? "loading" : ""}>
+      <Form onSubmit={onSubmit} noValidate className={loading ? "loading" : ""} autoComplete="off">
         <h1>New User? Register Now!</h1>
         <Form.Input
           label="Username"

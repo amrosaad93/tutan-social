@@ -35,7 +35,7 @@ const NewPostForm = () => {
 
   return (
     <>
-      <Form onSubmit={onSubmit}>
+      <Form onSubmit={onSubmit} autoComplete="off">
         <h2>Ask for Feedback</h2>
         <Form.Field>
           <Form.Input

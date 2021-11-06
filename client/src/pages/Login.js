@@ -42,7 +42,7 @@ const Login = () => {
 
   return (
     <div className="form-container">
-      <Form onSubmit={onSubmit} noValidate className={loading ? "loading" : ""}>
+      <Form onSubmit={onSubmit} noValidate className={loading ? "loading" : ""} autoComplete="off">
         <h1>Login</h1>
         <Form.Input
           label="Username"
