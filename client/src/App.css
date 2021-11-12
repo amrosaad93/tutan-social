@@ -1,4 +1,14 @@
+body {
+  overflow-x: hidden;
+}
+
 .input {
+  width: 80% !important;
+  font-size: 16px;
+}
+
+.ui.form .field .ui.input input,
+.ui.form .fields .field .ui.input input {
   width: 80% !important;
   font-size: 16px;
 }
