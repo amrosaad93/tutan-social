@@ -46,7 +46,7 @@ const PostPage = (props) => {
   } else {
     const { id, body, createdAt, username, comments, likes, likeCount, commentCount } = data.getPost;
     return (
-      <Grid>
+      <Grid stackable>
         <Grid.Row>
           <Grid.Column width={2}>
             <Image src="https://react.semantic-ui.com/images/avatar/large/molly.png" size="small" float="right" />
