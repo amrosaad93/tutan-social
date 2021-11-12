@@ -17,7 +17,7 @@ const Home = () => {
     const posts = data.getPosts;
     if (posts) {
       return (
-        <Grid columns={3}>
+        <Grid stackable columns={3}>
           <Grid.Row className="page-title">
             <h1>Recent Questions</h1>
           </Grid.Row>
